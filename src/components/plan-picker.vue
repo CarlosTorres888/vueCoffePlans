@@ -1,9 +1,11 @@
 <template>
    <div  class="plans">
       <plan-picker-item
+      @select="printSelected"
        v-for="plan in plans"
        :name="plan"
        v-bind:key="plan"/>
+       {{selectedPlan}}
     </div>
 </template>
 
@@ -18,5 +20,11 @@ defineProps({
     requiered: true,
   }
 });
+
+const selectedPlan = ref(null);
+
+const printSelected = (playload) =>{
+  selectedPlan.value = playload;
+}
 
 </script>

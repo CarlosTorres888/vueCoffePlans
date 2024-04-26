@@ -13,16 +13,25 @@
 
 <script setup>
 import { ref } from 'vue';
-const selected = ref(false);
-const select = ()=>{
-selected.value = true
-}
-defineProps({
+
+//creando un evento
+const emit = defineEmits(['select']);
+
+const props = defineProps({
   name: {
     type: String,
     requiered: true,
   }
 });
+
+const selected = ref(false);
+const select = ()=>{
+selected.value = true
+//detonando el evento
+emit('select', props.name);
+}
+
+
 </script>
 
 <style scoped>
