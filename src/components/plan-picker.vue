@@ -2,10 +2,10 @@
    <div  class="plans">
       <plan-picker-item
       @select="printSelected"
+      :selectedPlan="selectedPlan"
        v-for="plan in plans"
        :name="plan"
        v-bind:key="plan"/>
-       {{selectedPlan}}
     </div>
 </template>
 
