@@ -2,6 +2,8 @@
 import planPicker from './components/plan-picker.vue';
 import appTitle from './components/app-title.vue';
 import appSubtitle from './components/app-subtitle.vue';
+import {ref} from 'vue';
+const showPlans = ref(true);
 </script>
 
 <template>
@@ -15,7 +17,11 @@ import appSubtitle from './components/app-subtitle.vue';
   <div class="content">
     <app-title title="Vacaciones"/>
     <app-subtitle subtitle="Viajamos por el mundo para encontrar el mejor café de origen único para ti"/>
-    <plan-picker :plans="['el soltero','El colombiano','Extra']"/>
+    <label>
+      <input type="checkbox" v-model="showPlans">
+      Mostrar Selector de Planes
+    </label>
+    <plan-picker :plans="['el soltero','El colombiano','Extra']" v-if="showPlans"/>
   </div>
 </template>
 
